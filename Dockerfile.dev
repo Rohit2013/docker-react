@@ -1,0 +1,13 @@
+# Specify a Base Image. alpine is special tag in terms of docker which means bare minimum.
+FROM node:alpine
+
+WORKDIR /app
+
+# Install dependency
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+# Default command
+CMD ["npm", "run", "start"]
